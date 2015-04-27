@@ -35,10 +35,10 @@ void happyStickman::draw(){
     
     //left arm
     if (remainder(integral, 2)== 0){
-        leftArmDeg = fractional * 60 - 60;
+        leftArmDeg = fractional * 25 - 25;
         
     }else{
-        leftArmDeg = -fractional* 60;
+        leftArmDeg = -fractional* 25;
     }
     leftArmRad = ofDegToRad(leftArmDeg);
     
@@ -48,9 +48,15 @@ void happyStickman::draw(){
     ofTranslate(startingPos.x+ fractional ,500);
     ofPoint neck = ofPoint(0,sin(leftArmRad)*20);
 
-    
     leftHand = ofPoint(  50 * sin(leftArmRad),   50 * cos(leftArmRad));
-    ofLine(neck, leftHand);
+    leftJoint = ofPoint(leftHand.x - 12, (neck.y + leftHand.y)/2);
+    leftArm.clear();
+    leftArm.lineTo(neck);
+    leftArm.lineTo(leftJoint);
+    ofCircle(leftJoint, 4);
+    leftArm.lineTo(leftHand);
+    leftArm.draw();
+    // ofLine(neck, leftHand);
     ofCircle(leftHand, 4);
     
     //right arm
@@ -58,7 +64,16 @@ void happyStickman::draw(){
     rightArmDeg = - leftArmDeg;
     rightArmRad = ofDegToRad(rightArmDeg);
     rightHand = ofPoint( 50 * sin(rightArmRad),   50 * cos(rightArmRad));
-    ofLine(neck, rightHand);
+    rightJoint = ofPoint(rightHand.x - 12, (neck.y + rightHand.y)/2 );
+    rightArm.clear();
+    //rightArm.lineTo(0,0);
+    rightArm.lineTo(neck);
+    rightArm.lineTo(rightJoint );
+    rightArm.lineTo(rightHand);
+    ofCircle(rightJoint, 4);
+    rightArm.draw();
+
+    
     ofCircle(rightHand, 4);
     
     
