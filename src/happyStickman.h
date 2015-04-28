@@ -20,12 +20,12 @@ public:
     void draw();
     
 
-    ofPoint leftHand, rightHand, leftFoot, rightFoot, head, midPoint, startingPos, leftJoint, rightJoint;
+    ofPoint leftHand, rightHand, leftFoot, rightFoot, head, midPoint, startingPos, leftJoint, rightJoint, leftKnee, rightKnee;
     float leftArmDeg,leftArmRad, rightArmDeg, rightArmRad, leftLegDeg, leftLegRad,
     rightLegDeg, rightLegRad;
 
     float time;
-    ofPolyline rightArm, leftArm;
+    ofPolyline rightArm, leftArm, leftLeg, rightLeg;
 };
 
 

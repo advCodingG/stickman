@@ -25,7 +25,7 @@ void ofApp::update(){
 
 
     for (int i = 0; i < happyStickmen.size(); i ++) {
-      //  happyStickmen[i].update();
+      //  erase the stickman from the vector when he is out of the window
         if(happyStickmen[i].leftFoot.x > ofGetWindowWidth()){
             happyStickmen.erase( happyStickmen.begin() + i);
         
@@ -34,7 +34,7 @@ void ofApp::update(){
     }
     
     for (int j = 0; j < sadStickmen.size(); j ++) {
-       // sadStickmen[j].update();
+
         if(sadStickmen[j].leftFoot.x > ofGetWindowWidth()){
             sadStickmen.erase( sadStickmen.begin() + j);
             
@@ -77,16 +77,15 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if(key == 'h'){
-        
+        //add one happy stickman to the vector when key h is pressed
         happyStickman _happyStickman;
-        _happyStickman.time = 0;
         _happyStickman.setup();
         happyStickmen.push_back(_happyStickman);
     }
     
     if(key == 's'){
+        //add one sad stickman to the vector when key s is pressed
         sadStickman _sadStickman;
-        _sadStickman.time = 0;
         _sadStickman.setup();
         sadStickmen.push_back(_sadStickman);
 

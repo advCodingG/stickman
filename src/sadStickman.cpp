@@ -22,20 +22,19 @@ void sadStickman::update(){
 }
 
 void sadStickman::draw(){
-    
+    //sad stickman uses pretty much the same set of methods as happy stickman except that the arms don't swing, the torso is a ofCurve, and the head slightly tilts down.
 
 time = ofGetElapsedTimef();
 float integral;
 float fractional  = modf(time, &integral);
 
-//   ofBackground(255, 255, 255);
 
 ofSetLineWidth(5);
 ofSetColor(50,50,50);
 
 //arm
     ofPushMatrix();
-    startingPos.x += 1;
+    startingPos.x += 1;  //this controls how fast the stickman walks
 ofTranslate( startingPos.x + fractional,400);
 ofPoint neck = ofPoint(0, - 10+sin(leftLegRad)*10);
 hand = ofPoint(neck.x+2, neck.y + 40);
